@@ -1,0 +1,3 @@
+@layer theme, base, primereact, components, utilities;
+
+@import "tailwindcss";

@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16-alpine:///receptar
+    username: receptar
+    password: receptar
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
