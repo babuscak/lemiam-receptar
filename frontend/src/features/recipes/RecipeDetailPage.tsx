@@ -26,8 +26,8 @@ export default function RecipeDetailPage() {
           <Button label="Recipes" icon="pi pi-arrow-left" text size="small" />
         </Link>
       </div>
-      <div className="flex items-center gap-3 mb-6">
-        <h1 className="text-2xl font-bold">{recipe.name}</h1>
+      <div className="flex items-center gap-3 mb-5">
+        <h1 className="text-lg font-semibold">{recipe.name}</h1>
         <Tag value={recipe.type === 'SUB' ? 'Sub Recipe' : 'Final'} severity={recipe.type === 'SUB' ? 'info' : 'warning'} />
         <Tag value={recipe.active ? 'Active' : 'Inactive'} severity={recipe.active ? 'success' : 'danger'} />
       </div>
@@ -54,36 +54,36 @@ function SummaryCard({ recipe, toast }: { recipe: NonNullable<ReturnType<typeof 
   return (
     <Card>
       <div className="flex justify-between items-start">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-4 max-w-lg">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-lg">
           <div>
-            <p className="text-sm text-gray-500 font-medium">Portions</p>
-            <p className="text-base font-semibold">{recipe.portions}</p>
+            <p className="text-xs text-gray-400">Portions</p>
+            <p className="text-sm">{recipe.portions}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-500 font-medium">Total Cost</p>
-            <p className="text-base font-semibold">
+            <p className="text-xs text-gray-400">Total Cost</p>
+            <p className="text-sm">
               {recipe.totalCost != null ? `${Number(recipe.totalCost).toFixed(2)} EUR` : '-'}
             </p>
           </div>
           <div>
-            <p className="text-sm text-gray-500 font-medium">Price per Portion</p>
-            <p className="text-base font-semibold text-blue-700">
+            <p className="text-xs text-gray-400">Price per Portion</p>
+            <p className="text-sm">
               {recipe.pricePerPortion != null ? `${Number(recipe.pricePerPortion).toFixed(2)} EUR` : '-'}
             </p>
           </div>
           <div>
-            <p className="text-sm text-gray-500 font-medium">Ingredients</p>
-            <p className="text-base">{recipe.lines.length}</p>
+            <p className="text-xs text-gray-400">Ingredients</p>
+            <p className="text-sm">{recipe.lines.length}</p>
           </div>
           {recipe.notes && (
             <div className="col-span-2">
-              <p className="text-sm text-gray-500 font-medium">Notes</p>
-              <p className="text-base whitespace-pre-wrap">{recipe.notes}</p>
+              <p className="text-xs text-gray-400">Notes</p>
+              <p className="text-sm whitespace-pre-wrap">{recipe.notes}</p>
             </div>
           )}
           <div className="col-span-2">
-            <p className="text-sm text-gray-500 font-medium">Last Modified</p>
-            <p className="text-base">{new Date(recipe.updatedAt).toLocaleString()}</p>
+            <p className="text-xs text-gray-400">Last Modified</p>
+            <p className="text-sm">{new Date(recipe.updatedAt).toLocaleString()}</p>
           </div>
         </div>
         <div className="flex gap-2">
@@ -170,8 +170,8 @@ function IngredientsCard({ recipe, toast }: { recipe: NonNullable<ReturnType<typ
     { label: 'Sub-recipe', value: 'sub-recipe' },
   ];
 
-  const inputClass = 'w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none';
-  const labelClass = 'block text-sm font-medium text-gray-700 mb-1';
+  const inputClass = 'w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none';
+  const labelClass = 'block text-sm text-gray-600 mb-1';
 
   return (
     <>
@@ -203,11 +203,11 @@ function IngredientsCard({ recipe, toast }: { recipe: NonNullable<ReturnType<typ
         footer={
           <div className="flex justify-end gap-2">
             <button type="button" onClick={() => setShowEdit(false)}
-              className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
+              className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
               Cancel
             </button>
             <button type="submit" form="edit-lines-form" disabled={updateRecipe.isPending}
-              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
+              className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
               {updateRecipe.isPending ? 'Saving...' : 'Save'}
             </button>
           </div>

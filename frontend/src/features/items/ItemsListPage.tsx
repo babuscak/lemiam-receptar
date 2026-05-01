@@ -18,7 +18,7 @@ export default function ItemsListPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-xl font-bold">Items</h1>
+        <h1 className="text-lg font-semibold">Items</h1>
         <Button label="New Item" icon="pi pi-plus" onClick={() => setShowCreate(true)} />
       </div>
 
@@ -112,17 +112,17 @@ function CreateItemDialog({ visible, onHide }: { visible: boolean; onHide: () =>
     setForm({ ...form, packageUnit: newUnit, recipeUnit });
   };
 
-  const inputClass = 'w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none';
-  const labelClass = 'block text-sm font-medium text-gray-700 mb-1';
+  const inputClass = 'w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none';
+  const labelClass = 'block text-sm text-gray-600 mb-1';
 
   const footer = (
     <div className="flex justify-end gap-2">
       <button type="button" onClick={resetAndClose}
-        className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
+        className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
         Cancel
       </button>
       <button type="submit" form="create-item-form" disabled={!form.name || createItem.isPending}
-        className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
+        className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
         {createItem.isPending ? 'Creating...' : 'Create'}
       </button>
     </div>
@@ -152,7 +152,7 @@ function CreateItemDialog({ visible, onHide }: { visible: boolean; onHide: () =>
         </div>
 
         <fieldset className="border-t pt-4">
-          <legend className="text-sm font-semibold text-gray-600 mb-3">Packaging</legend>
+          <legend className="text-sm text-gray-500 mb-3">Packaging</legend>
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label htmlFor="pkg-unit" className={labelClass}>Unit *</label>
@@ -180,7 +180,7 @@ function CreateItemDialog({ visible, onHide }: { visible: boolean; onHide: () =>
         </fieldset>
 
         <fieldset className="border-t pt-4">
-          <legend className="text-sm font-semibold text-gray-600 mb-3">Recipe</legend>
+          <legend className="text-sm text-gray-500 mb-3">Recipe</legend>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="recipe-unit" className={labelClass}>Recipe Unit *</label>

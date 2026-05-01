@@ -21,16 +21,16 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1 className="text-xl font-bold mb-6">Dashboard</h1>
+      <h1 className="text-lg font-semibold mb-5">Dashboard</h1>
 
-      <div className="grid grid-cols-2 gap-4 mb-8 max-w-md">
-        <Card className="bg-green-50">
-          <p className="text-xs font-medium text-green-700 opacity-70">Active Items</p>
-          <p className="text-2xl font-bold text-green-700 mt-1">{activeCount}</p>
+      <div className="grid grid-cols-2 gap-4 mb-6 max-w-sm">
+        <Card className="bg-gray-50">
+          <p className="text-xs text-gray-500">Active Items</p>
+          <p className="text-xl font-semibold mt-1">{activeCount}</p>
         </Card>
         <Card className="bg-gray-50">
-          <p className="text-xs font-medium text-gray-700 opacity-70">Total Items</p>
-          <p className="text-2xl font-bold text-gray-700 mt-1">{totalCount}</p>
+          <p className="text-xs text-gray-500">Total Items</p>
+          <p className="text-xl font-semibold mt-1">{totalCount}</p>
         </Card>
       </div>
 

@@ -25,18 +25,18 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full bg-white rounded-lg shadow p-8">
-        <h1 className="text-2xl font-bold text-center mb-6">Receptar</h1>
-        <p className="text-gray-500 text-center mb-6">Bakery Recipe Costing & Impact Analyzer</p>
+      <div className="max-w-sm w-full bg-white rounded-lg shadow-sm border p-8">
+        <h1 className="text-lg font-semibold text-center mb-1">Receptar</h1>
+        <p className="text-sm text-gray-400 text-center mb-6">Bakery Recipe Costing</p>
         {error && <Message severity="error" text={error} className="w-full mb-4" />}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <label className="block text-sm text-gray-600 mb-1">Email</label>
             <InputText type="email" value={email} onChange={e => setEmail(e.target.value)}
               className="w-full" required />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <label className="block text-sm text-gray-600 mb-1">Password</label>
             <InputText type="password" value={password} onChange={e => setPassword(e.target.value)}
               className="w-full" required />
           </div>

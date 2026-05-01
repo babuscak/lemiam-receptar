@@ -28,7 +28,7 @@ export default function ItemDetailPage() {
         </Link>
       </div>
       <div className="flex items-center gap-3 mb-4">
-        <h1 className="text-2xl font-bold">{item.name}</h1>
+        <h1 className="text-lg font-semibold">{item.name}</h1>
         <Tag value={item.active ? 'Active' : 'Inactive'} severity={item.active ? 'success' : 'danger'} />
       </div>
 
@@ -47,43 +47,43 @@ export default function ItemDetailPage() {
 function DetailsTab({ item }: { item: any }) {
   return (
     <Card className="max-w-2xl">
-      <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-3">
         <div>
-          <p className="text-sm text-gray-500 font-medium">SKU</p>
-          <p className="text-base">{item.sku || '-'}</p>
+          <p className="text-xs text-gray-400">SKU</p>
+          <p className="text-sm">{item.sku || '-'}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium">Status</p>
-          <p className="text-base">{item.active ? 'Active' : 'Inactive'}</p>
+          <p className="text-xs text-gray-400">Status</p>
+          <p className="text-sm">{item.active ? 'Active' : 'Inactive'}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium">Package Unit</p>
-          <p className="text-base">{item.packageUnit}</p>
+          <p className="text-xs text-gray-400">Package Unit</p>
+          <p className="text-sm">{item.packageUnit}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium">Package Qty</p>
-          <p className="text-base">{item.packageQuantity ?? '-'}</p>
+          <p className="text-xs text-gray-400">Package Qty</p>
+          <p className="text-sm">{item.packageQuantity ?? '-'}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium">Package Price</p>
-          <p className="text-base">{item.packagePriceEur != null ? `${Number(item.packagePriceEur).toFixed(2)} EUR` : '-'}</p>
+          <p className="text-xs text-gray-400">Package Price</p>
+          <p className="text-sm">{item.packagePriceEur != null ? `${Number(item.packagePriceEur).toFixed(2)} EUR` : '-'}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 font-medium">Recipe Unit</p>
-          <p className="text-base">{item.recipeUnit}</p>
+          <p className="text-xs text-gray-400">Recipe Unit</p>
+          <p className="text-sm">{item.recipeUnit}</p>
         </div>
         <div className="col-span-2">
-          <p className="text-sm text-gray-500 font-medium">Price per Recipe Unit</p>
-          <p className="text-base font-semibold">{item.pricePerRecipeUnit != null ? `${Number(item.pricePerRecipeUnit).toFixed(4)} EUR/${item.recipeUnit}` : '-'}</p>
+          <p className="text-xs text-gray-400">Price per Recipe Unit</p>
+          <p className="text-sm">{item.pricePerRecipeUnit != null ? `${Number(item.pricePerRecipeUnit).toFixed(4)} EUR/${item.recipeUnit}` : '-'}</p>
         </div>
         <div className="col-span-2">
-          <p className="text-sm text-gray-500 font-medium">Last Modified</p>
-          <p className="text-base">{new Date(item.updatedAt).toLocaleString()}</p>
+          <p className="text-xs text-gray-400">Last Modified</p>
+          <p className="text-sm">{new Date(item.updatedAt).toLocaleString()}</p>
         </div>
       </div>
       {item.allergens?.length > 0 && (
         <div className="mt-4">
-          <p className="text-sm text-gray-500 font-medium mb-1">Allergens</p>
+          <p className="text-xs text-gray-400 mb-1">Allergens</p>
           <div className="flex flex-wrap gap-1">
             {item.allergens.map((a: string) => (
               <Tag key={a} value={a} severity="danger" />
@@ -122,24 +122,24 @@ function PricingTab({ itemId, toast }: { itemId: string; toast: React.RefObject<
       <Card title="Add Purchase" className="max-w-lg">
         <form onSubmit={handleAdd} className="space-y-3">
           <div>
-            <label className="block text-sm font-medium mb-1">Supplier</label>
+            <label className="block text-sm text-gray-600 mb-1">Supplier</label>
             <InputText value={form.supplier} onChange={e => setForm({ ...form, supplier: e.target.value })}
               className="w-full" />
           </div>
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <label className="block text-sm font-medium mb-1">Quantity</label>
+              <label className="block text-sm text-gray-600 mb-1">Quantity</label>
               <InputNumber value={form.purchaseQuantity}
                 onValueChange={e => setForm({ ...form, purchaseQuantity: e.value ?? null })}
                 minFractionDigits={0} maxFractionDigits={2} className="w-full" />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Unit</label>
+              <label className="block text-sm text-gray-600 mb-1">Unit</label>
               <Dropdown value={form.purchaseUnit} onChange={e => setForm({ ...form, purchaseUnit: e.value })}
                 options={unitOptions} className="w-full" />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Total Price (EUR)</label>
+              <label className="block text-sm text-gray-600 mb-1">Total Price (EUR)</label>
               <InputNumber value={form.totalPriceEur}
                 onValueChange={e => setForm({ ...form, totalPriceEur: e.value ?? null })}
                 minFractionDigits={0} maxFractionDigits={2} mode="currency" currency="EUR" className="w-full" />

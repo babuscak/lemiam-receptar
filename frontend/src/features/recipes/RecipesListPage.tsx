@@ -20,7 +20,7 @@ export default function RecipesListPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-xl font-bold">Recipes</h1>
+        <h1 className="text-lg font-semibold">Recipes</h1>
         <Button label="New Recipe" icon="pi pi-plus" onClick={() => setShowCreate(true)} />
       </div>
 
@@ -140,17 +140,17 @@ function CreateRecipeDialog({ visible, onHide }: { visible: boolean; onHide: () 
     { label: 'Sub-recipe', value: 'sub-recipe' },
   ];
 
-  const inputClass = 'w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none';
-  const labelClass = 'block text-sm font-medium text-gray-700 mb-1';
+  const inputClass = 'w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none';
+  const labelClass = 'block text-sm text-gray-600 mb-1';
 
   const footer = (
     <div className="flex justify-end gap-2">
       <button type="button" onClick={resetAndClose}
-        className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
+        className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
         Cancel
       </button>
       <button type="submit" form="create-recipe-form" disabled={!form.name || createRecipe.isPending}
-        className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
+        className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
         {createRecipe.isPending ? 'Creating...' : 'Create'}
       </button>
     </div>
@@ -198,7 +198,7 @@ function CreateRecipeDialog({ visible, onHide }: { visible: boolean; onHide: () 
         </div>
 
         <fieldset className="border-t pt-4">
-          <legend className="text-sm font-semibold text-gray-600 mb-3">Ingredients</legend>
+          <legend className="text-sm text-gray-500 mb-3">Ingredients</legend>
           <div className="space-y-2">
             {lines.map((line, idx) => (
               <div key={idx} className="flex gap-2 items-end">

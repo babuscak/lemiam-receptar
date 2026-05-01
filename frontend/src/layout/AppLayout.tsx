@@ -18,24 +18,24 @@ export default function AppLayout() {
   return (
     <div className="min-h-screen flex bg-gray-50">
       <Toast ref={toast} />
-      <aside className="w-56 bg-white border-r flex flex-col">
-        <div className="p-4 border-b">
-          <h1 className="text-lg font-bold text-blue-600">Receptar</h1>
+      <aside className="w-52 bg-white border-r flex flex-col">
+        <div className="px-4 py-3 border-b">
+          <h1 className="text-base font-semibold text-gray-800">Receptar</h1>
         </div>
-        <nav className="flex-1 p-2 space-y-1">
+        <nav className="flex-1 p-2 space-y-0.5">
           {navItems.map((item) => (
             <NavLink key={item.to} to={item.to} end={item.to === '/'}
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded text-sm ${isActive ? 'bg-blue-50 text-blue-700 font-medium' : 'text-gray-700 hover:bg-gray-100'}`
+                `flex items-center gap-2 px-3 py-2 rounded text-sm ${isActive ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50'}`
               }>
-              <i className={item.icon}></i>
+              <i className={`${item.icon} text-sm`}></i>
               {item.label}
             </NavLink>
           ))}
         </nav>
-        <div className="p-4 border-t">
-          <p className="text-xs text-gray-500 truncate mb-2">{user?.email}</p>
-          <Button label="Logout" icon="pi pi-sign-out" severity="danger" text size="small" onClick={logout} />
+        <div className="px-4 py-3 border-t">
+          <p className="text-xs text-gray-400 truncate mb-2">{user?.email}</p>
+          <Button label="Logout" icon="pi pi-sign-out" severity="secondary" text size="small" onClick={logout} />
         </div>
       </aside>
       <main className="flex-1 overflow-auto">

@@ -1,3 +1,13 @@
 @layer theme, base, primereact, components, utilities;
 
 @import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1f2937;
+  }
+}

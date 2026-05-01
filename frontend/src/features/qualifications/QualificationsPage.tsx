@@ -33,7 +33,7 @@ export default function QualificationsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-xl font-bold">Qualifications</h1>
+        <h1 className="text-lg font-semibold">Qualifications</h1>
         <Button label="New Qualification" icon="pi pi-plus" onClick={() => setShowCreate(!showCreate)} />
       </div>
 
@@ -45,12 +45,12 @@ export default function QualificationsPage() {
             setForm({ name: '', hourlyRateEur: null });
           }} className="flex gap-3 items-end">
             <div className="flex-1">
-              <label className="block text-sm mb-1">Name</label>
+              <label className="block text-sm text-gray-600 mb-1">Name</label>
               <InputText value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
                 className="w-full" required />
             </div>
             <div className="w-40">
-              <label className="block text-sm mb-1">Rate EUR/hr</label>
+              <label className="block text-sm text-gray-600 mb-1">Rate EUR/hr</label>
               <InputNumber value={form.hourlyRateEur}
                 onValueChange={e => setForm({ ...form, hourlyRateEur: e.value ?? null })}
                 minFractionDigits={0} maxFractionDigits={2} mode="currency" currency="EUR" className="w-full" />
